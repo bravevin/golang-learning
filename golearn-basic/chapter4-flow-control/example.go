@@ -27,6 +27,7 @@ func main() {
 		fmt.Println("this is default")
 	}
 	// for
+	// form 1
 	c := 1
 	for {
 		c++
@@ -35,10 +36,12 @@ func main() {
 			break
 		}
 	}
+	// form 2
 	// 完整形式
 	for i := 0; i < 8; i += 3 {
 		fmt.Println(i)
 	}
+	// form 3 相当于 while
 	// 简略版
 	j := 10
 	for j < 20 {
@@ -64,7 +67,6 @@ func main() {
 	for number1 < 6 {
 		number1++
 		if number1 == 4 {
-			break
 			goto B
 		}
 	}

@@ -8,8 +8,8 @@ func main() {
 	arrExample = [3]int{1, 3, 5}
 	fmt.Println(arrExample)
 
-	arr1 := [3]int{2, 3, 4}
-	arr2 := [...]int{1, 3, 5, 9, 13}
+	arr1 := [3]int{2, 3, 4}          // 隐式声明
+	arr2 := [...]int{1, 3, 5, 9, 13} //不定长数组
 	arr3 := new([10]int)
 	arr3[6] = 10
 	fmt.Println(arr1, arr2, arr3)
@@ -28,8 +28,8 @@ func main() {
 	}
 	fmt.Println(er)
 
-	// 切片 slice
 	newArr := [3]int{12, 32, 56}
+	// 切片 slice
 	// 切片前闭后开原则
 	s1 := newArr[:] // 截取全部
 	fmt.Println(s1)
@@ -47,12 +47,12 @@ func main() {
 	arrOne := [3]int{0, 1, 2}
 	cluster1 := arrOne[:]  // [0,1,2]
 	cluster2 := arrOne[2:] // [2]
-	cluster3 := arrOne[:2] // [1,2]
-	fmt.Println(cluster1, cluster2)
+	cluster3 := arrOne[:2] // [0,1]
+	fmt.Println(cluster1, cluster2, cluster3)
 	cluster1 = append(cluster1, 5) // [0,1,2,5]
-	//copy(cluster1, cluster2) // [2,1,2,5]
-	//copy(cluster1[1:], cluster2) // [0,2,2,5]
-	copy(cluster1[2:], cluster3) // [0,1,0,1]
+	//copy(cluster1, cluster2) // [2,1,2,5] // 默认从头部copy
+	//copy(cluster1[1:], cluster2) // [0,2,2,5] //start|end 前闭后开
+	copy(cluster1[2:], cluster3) // [0,1,0,1] //start|end 前闭后开
 	fmt.Println(cluster1, cluster2)
 	fmt.Println(cluster1, cluster3)
 }
