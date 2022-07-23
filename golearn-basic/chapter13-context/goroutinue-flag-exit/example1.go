@@ -14,6 +14,7 @@ func main() {
 	}
 	flag <- true
 	time.Sleep(time.Second)
+	fmt.Println("主进程结束")
 }
 
 func son(flag chan bool, msg chan int) {
